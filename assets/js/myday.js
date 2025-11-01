@@ -3,29 +3,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.getElementById('menu-toggle');
     const taskListContainer = document.getElementById('task-list');
 
-    // Modals initialization
     const taskAddModalElement = document.getElementById('taskAddModal');
     const taskAddModal = new bootstrap.Modal(taskAddModalElement);
     const taskEditModalElement = document.getElementById('taskEditModal');
     const taskEditModal = new bootstrap.Modal(taskEditModalElement);
 
-    // Task data storage
     let tasks = [
         { id: 1, title: 'Answer IT ERA Assignment', folder: 'IT ERA', date: '2025-10-31', isImportant: true, isCompleted: false },
         { id: 2, title: 'Study Platform Technologies slides', folder: 'Platform Technologies', date: '2025-11-01', isImportant: false, isCompleted: false },
         { id: 3, title: 'Watch new Marvel movie', folder: 'Movie Marathon', date: '2025-11-05', isImportant: false, isCompleted: true },
     ];
-    let nextTaskId = 4; // Used to assign unique IDs to new tasks
+    let nextTaskId = 4; 
 
-    // --- Utility Functions ---
-
-    /**
-     * Renders all tasks in the global `tasks` array to the DOM.
-     */
     function renderTasks() {
-        taskListContainer.innerHTML = ''; // Clear existing tasks
+        taskListContainer.innerHTML = ''; 
 
-        // Get list of folders to populate select options in modals
         const folderItems = document.querySelectorAll('.folder-item');
         const folderOptions = Array.from(folderItems).map(item => ({
             name: item.dataset.folderName,
@@ -33,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }));
         const allFolders = ['My Day', 'Planned', 'Important', 'Completed', ...folderOptions.map(f => f.name)];
 
-        // Populate Add Task Modal folder options
         const newFolderSelect = document.getElementById('new-task-folder');
         const editFolderSelect = document.getElementById('modal-edit-folder-select');
         newFolderSelect.innerHTML = '';
@@ -47,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
             editFolderSelect.appendChild(option.cloneNode(true));
         });
 
-        tasks.filter(task => !task.isCompleted).forEach(task => { // Only show incomplete tasks on "My Day" page for this demo
+        tasks.filter(task => !task.isCompleted).forEach(task => { 
             const folder = folderOptions.find(f => f.name === task.folder);
             const folderColor = folder ? folder.color : varToCSS('var(--primary-blue)');
 
@@ -55,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
             taskItem.className = `task-item ${task.isCompleted ? 'completed' : ''}`;
             taskItem.dataset.taskId = task.id;
 
-            // Format date for display
             const dateDisplay = task.date ? new Date(task.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'No Due Date';
 
             taskItem.innerHTML = `
@@ -77,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function varToCSS(cssVar) {
-        return getComputedStyle(document.documentElement).getPropertyValue(cssVar) || '#0d6efd'; // Default to blue
+        return getComputedStyle(document.documentElement).getPropertyValue(cssVar) || '#0d6efd'; 
     }
 
 
@@ -102,9 +92,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (newTask.title) {
             tasks.push(newTask);
-            renderTasks(); // Re-render the list to show the new task
-            taskAddModal.hide(); // Close the modal
-            // Reset the form
+            renderTasks();
+            taskAddModal.hide(); 
             document.getElementById('add-task-form').reset();
             alert('Task Added: ' + newTask.title);
         } else {
@@ -117,15 +106,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const task = tasks.find(t => t.id === taskId);
         if (!task) return;
 
-        // Set data-task-id in modal for easy access on save/delete
         document.getElementById('modal-edit-task-id').value = task.id;
 
-        // Populate main fields
         document.getElementById('modal-edit-task-title').value = task.title;
         document.getElementById('modal-edit-due-date').value = task.date;
         document.getElementById('modal-edit-complete-check').checked = task.isCompleted;
 
-        // Populate details section
         const folderDetails = document.getElementById('modal-edit-task-folder');
         const dateDetails = document.getElementById('modal-edit-task-date');
         const starDetails = document.getElementById('modal-edit-task-star');
@@ -135,10 +121,8 @@ document.addEventListener('DOMContentLoaded', function () {
         dateDetails.innerHTML = `<i class="fas fa-calendar-alt"></i> ${task.date ? new Date(task.date).toLocaleDateString() : 'No Due Date'}`;
         starDetails.innerHTML = `<i class="${task.isImportant ? 'fas' : 'far'} fa-star"></i> Important`;
 
-        // Select the current folder in the dropdown
         folderSelect.value = task.folder;
 
-        // Show the modal
         taskEditModal.show();
     }
 
@@ -152,9 +136,6 @@ document.addEventListener('DOMContentLoaded', function () {
             tasks[taskIndex].folder = document.getElementById('modal-edit-folder-select').value;
             tasks[taskIndex].date = document.getElementById('modal-edit-due-date').value;
             tasks[taskIndex].isCompleted = document.getElementById('modal-edit-complete-check').checked;
-
-            // We need a specific button/icon for importance if we want to change it here, 
-            // but for simplicity, we'll keep importance status handled by the star icon on the main list.
 
             renderTasks();
             taskEditModal.hide();
@@ -195,23 +176,17 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // --- Event Listeners and Initialization ---
-
     function attachTaskItemListeners() {
-        // Listener for opening Edit Modal
         document.querySelectorAll('.task-item').forEach(item => {
-            // Re-attach click listener for the main task item
-            item.removeEventListener('click', itemClickListener); // Remove old one first
+            item.removeEventListener('click', itemClickListener);
             item.addEventListener('click', itemClickListener);
         });
 
-        // Listener for Checkbox (Completion)
         document.querySelectorAll('.task-item .form-check-input').forEach(checkbox => {
             checkbox.removeEventListener('change', checkboxListener);
             checkbox.addEventListener('change', checkboxListener);
         });
 
-        // Listener for Star (Importance)
         document.querySelectorAll('.task-item .task-star i').forEach(star => {
             star.removeEventListener('click', starClickListener);
             star.addEventListener('click', starClickListener);
@@ -219,7 +194,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     const itemClickListener = function (e) {
-        // Prevent modal from opening if checkbox/star was clicked
         if (e.target.closest('.form-check') || e.target.closest('.task-star')) {
             return;
         }
@@ -233,18 +207,16 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     const starClickListener = function (e) {
-        e.stopPropagation(); // Stop task-item click from also triggering
+        e.stopPropagation();
         const taskId = parseInt(this.dataset.taskId);
         toggleImportance(taskId);
     };
 
 
-    // Attach listeners to main actions
     document.getElementById('add-task-form').addEventListener('submit', handleAddTask);
     document.getElementById('save-task-btn').addEventListener('click', handleSaveTask);
     document.getElementById('delete-task-btn').addEventListener('click', handleDeleteTask);
 
-    // Handle completion change directly in the edit modal
     document.getElementById('modal-edit-complete-check').addEventListener('change', function () {
         const taskId = parseInt(document.getElementById('modal-edit-task-id').value);
         const taskIndex = tasks.findIndex(t => t.id === taskId);
@@ -254,9 +226,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
 
-    // --- Initial Setup ---
 
-    // Sidebar toggle logic (Reused)
     if (window.innerWidth > 768) {
         layout.classList.remove('toggled');
     } else {
@@ -281,6 +251,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Initial render
     renderTasks();
 });
