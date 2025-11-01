@@ -1,0 +1,239 @@
+ .user-navbar {
+     background-color: var(--navbar-bg) !important;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+     padding: 0.75rem 0;
+     z-index: 1030;
+ }
+
+ .dgit-logo {
+     display: flex;
+     align-items: center;
+     font-weight: bold;
+     font-size: 1.25rem;
+     color: var(--primary-blue);
+     text-decoration: none;
+     margin-right: 1.5rem;
+ }
+
+ .dgit-logo i {
+     font-size: 1.5rem;
+     margin-right: 0.3rem;
+ }
+
+ .menu-toggle-btn {
+     background: none;
+     border: none;
+     color: #333;
+     font-size: 1.5rem;
+     margin-right: 1rem;
+ }
+
+ .navbar-search .form-control {
+     border-radius: 20px;
+     background-color: white;
+     border: none;
+     padding-right: 2.5rem;
+ }
+
+ .navbar-search .input-group-text {
+     background-color: transparent;
+     border: none;
+     position: absolute;
+     right: 0;
+     top: 50%;
+     transform: translateY(-50%);
+     z-index: 10;
+ }
+
+ #user-app-layout {
+     display: flex;
+     flex-grow: 1;
+     transition: margin-left 0.3s ease;
+ }
+
+ .sidebar-wrapper {
+     width: var(--sidebar-width);
+     min-height: 100%;
+     background-color: var(--sidebar-bg);
+     border-right: 1px solid rgba(0, 0, 0, 0.1);
+     padding-top: 1.5rem;
+     flex-shrink: 0;
+     transition: margin-left 0.3s ease;
+ }
+
+ .toggled .sidebar-wrapper {
+     margin-left: calc(0px - var(--sidebar-width));
+ }
+
+ .sidebar-list-group-title {
+     color: var(--text-muted);
+     font-size: 0.8rem;
+     font-weight: bold;
+     text-transform: uppercase;
+     padding: 0.5rem 1.5rem 0.25rem;
+ }
+
+ .sidebar-item {
+     color: #333;
+     font-weight: 500;
+     padding: 0.75rem 1.5rem;
+     display: flex;
+     align-items: center;
+     border-left: 5px solid transparent;
+     text-decoration: none;
+ }
+
+ .sidebar-item i {
+     font-size: 1.1rem;
+     width: 20px;
+     margin-right: 0.75rem;
+     color: var(--text-muted);
+ }
+
+ .sidebar-item:hover:not(.active) {
+     background-color: rgba(0, 0, 0, 0.03);
+ }
+
+ .sidebar-item.active {
+     background-color: var(--active-item-bg);
+     border-left-color: var(--primary-blue);
+     color: var(--primary-blue);
+ }
+
+ .sidebar-item.active i {
+     color: var(--primary-blue);
+ }
+
+ .task-content-wrapper {
+     flex-grow: 1;
+     padding: 2.5rem 3rem;
+     position: relative;
+ }
+
+ .content-header {
+     display: flex;
+     align-items: center;
+     margin-bottom: 1rem;
+ }
+
+ .content-header h1 {
+     font-size: 1.8rem;
+     font-weight: 600;
+     margin-left: 1rem;
+ }
+
+ .content-header hr {
+     flex-grow: 1;
+     margin-left: 1rem;
+     border-top: 1px solid #dee2e6;
+ }
+
+ .task-item {
+     display: flex;
+     align-items: center;
+     background-color: white;
+     border: 1px solid #f0f0f0;
+     border-radius: 0.5rem;
+     padding: 1rem 1.5rem;
+     margin-bottom: 0.75rem;
+     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+     transition: box-shadow 0.2s;
+     cursor: pointer;
+ }
+
+ .task-item:hover {
+     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+ }
+
+ .task-item.completed .task-title {
+     text-decoration: line-through;
+     color: var(--text-muted);
+ }
+
+ .task-item.completed .task-subtitle {
+     color: #ccc;
+ }
+
+ .task-title {
+     font-size: 1.1rem;
+     font-weight: 500;
+     flex-grow: 1;
+ }
+
+ .task-subtitle {
+     font-size: 0.8rem;
+     color: var(--text-muted);
+ }
+
+ .task-star i {
+     color: #ffc107;
+     font-size: 1.25rem;
+     cursor: pointer;
+ }
+
+ .task-star .far {
+     color: var(--text-muted);
+ }
+
+ .fab-add-task {
+     position: absolute;
+     bottom: 2rem;
+     right: 3rem;
+     width: 50px;
+     height: 50px;
+     border-radius: 50%;
+     background-color: white;
+     border: 1px solid #dee2e6;
+     color: var(--text-muted);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+     font-size: 1.5rem;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+     transition: all 0.2s;
+     z-index: 10;
+ }
+
+ .fab-add-task:hover {
+     background-color: #f0f0f0;
+     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+ }
+
+ @media (max-width: 768px) {
+     .sidebar-wrapper {
+         position: absolute;
+         margin-left: calc(0px - var(--sidebar-width));
+         z-index: 10;
+     }
+
+     .toggled .sidebar-wrapper {
+         margin-left: 0px;
+     }
+ }
+
+ #taskEditModal .modal-body input[type="text"] {
+     border: 1px solid #ced4da;
+     border-radius: 0.5rem;
+     padding: 0.75rem;
+     font-size: 1.25rem;
+     font-weight: 500;
+ }
+
+ .modal-details {
+     font-size: 0.9rem;
+     color: var(--text-muted);
+     margin-top: 0.5rem;
+     margin-left: 0.5rem;
+ }
+
+ .modal-details i {
+     margin-right: 0.5rem;
+ }
+
+ .modal-footer {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     border-top: none;
+ }

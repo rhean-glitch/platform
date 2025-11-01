@@ -1,0 +1,135 @@
+.landing-navbar {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.dgit-logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #343a40;
+    text-decoration: none;
+}
+
+.dgit-logo i {
+    color: var(--primary-blue);
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.nav-links .btn {
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-left: 1rem;
+}
+
+.nav-links .btn-sign-up {
+    background-color: var(--orange-btn);
+    border: 2px solid var(--orange-btn);
+    color: white;
+    transition: all 0.2s ease;
+}
+
+.nav-links .btn-sign-up:hover {
+    background-color: var(--orange-btn-hover);
+    border-color: var(--orange-btn-hover);
+    color: white;
+}
+
+.nav-links .btn-sign-in {
+    color: #333;
+    background-color: transparent;
+    border: 2px solid transparent;
+}
+
+.nav-links .btn-sign-in:hover {
+    color: var(--secondary-blue);
+}
+
+.hero-section {
+    background-color: #e3f2fd;
+    padding: 5rem 0 3rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.screen-mockups {
+    position: relative;
+    margin: 4rem auto 0;
+    max-width: 800px;
+}
+
+.screen-mockups img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+}
+
+.content-block {
+    padding: 4rem 0 6rem;
+    text-align: center;
+}
+
+.content-block h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+}
+
+.content-block h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #6c757d;
+    margin-bottom: 2rem;
+}
+
+.content-block p {
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.btn-get-started {
+    background-color: var(--orange-btn);
+    border: none;
+    color: white;
+    padding: 0.8rem 3rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 0.75rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-get-started:hover {
+    background-color: var(--orange-btn-hover);
+    color: white;
+}
+
+.role-option-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid #ddd;
+    border-radius: 1rem;
+}
+
+.role-option-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+.role-option-card i {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary-blue);
+}
+
+.role-option-card h5 {
+    font-weight: 600;
+}

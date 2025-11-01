@@ -1,0 +1,186 @@
+.user-navbar {
+    background-color: var(--navbar-bg) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 0.75rem 0;
+    z-index: 1030;
+}
+
+.dgit-logo {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: var(--primary-blue);
+    text-decoration: none;
+    margin-right: 1.5rem;
+}
+
+.dgit-logo i {
+    font-size: 1.5rem;
+    margin-right: 0.3rem;
+}
+
+.navbar-search .form-control {
+    border-radius: 20px;
+    background-color: white;
+    border: none;
+    padding-right: 2.5rem;
+}
+
+.navbar-search .input-group-text {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+#user-app-layout {
+    display: flex;
+    flex-grow: 1;
+}
+
+.settings-content-wrapper {
+    flex-grow: 1;
+    padding: 2.5rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.back-arrow {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.settings-section-title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.info-value {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-right: 0.5rem;
+}
+
+.info-arrow i {
+    color: var(--text-muted);
+}
+
+.general-settings {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.toggles-group {
+    flex-grow: 1;
+    max-width: 50%;
+}
+
+.toggle-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+}
+
+.toggle-item .form-check-label {
+    font-weight: 500;
+}
+
+.delete-account-btn {
+    background-color: #f8f9fa;
+    color: #dc3545;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+    height: fit-content;
+}
+
+.delete-account-btn:hover {
+    background-color: #e9ecef;
+}
+
+.feedback-section {
+    text-align: right;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.feedback-section a {
+    color: var(--primary-blue);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.modal-content {
+    border-radius: 12px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: none;
+    padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.modal-title {
+    font-weight: 700;
+    color: #dc3545;
+}
+
+.modal-body {
+    padding: 0.5rem 1.5rem 1.5rem;
+    color: #333;
+}
+
+.modal-footer {
+    border-top: none;
+    padding: 0 1.5rem 1.5rem;
+    justify-content: space-between;
+}
+
+.btn-delete-confirm {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: white;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+}
+
+.btn-delete-confirm:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    color: white;
+}
