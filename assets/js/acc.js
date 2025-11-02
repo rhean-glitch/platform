@@ -1,3 +1,5 @@
+// Kani siya diri ner mao ni ang modal sa katong delete account
+
 function handleAccountDeletion() {
     console.log("Account Deletion Confirmed and Initiated...");
 

@@ -20,7 +20,7 @@ require_once 'header.php';
     <div class="container">
         <div class="screen-mockups">
 
-            <img src="path/to/your/image_1e4e7e.png" alt="DOIT App Mockup Screenshots">
+            <img src="" alt="ari nya ibutang inyong mock up screenshot sa inyong system.">
         </div>
     </div>
 </div>

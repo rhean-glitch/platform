@@ -1,3 +1,5 @@
+//kani kay mao ni katong hamburger menu
+
 document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.getElementById('menu-toggle');
     const layout = document.getElementById('user-app-layout');

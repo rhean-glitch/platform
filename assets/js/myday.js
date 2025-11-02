@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const taskEditModalElement = document.getElementById('taskEditModal');
     const taskEditModal = new bootstrap.Modal(taskEditModalElement);
 
+    // Kani tasks ingon ani ang porma sa inyong database example lang ni siya kay dapat naa sad moy table sa inyong task sa inyong database
+
     let tasks = [
         { id: 1, title: 'Answer IT ERA Assignment', folder: 'IT ERA', date: '2025-10-31', isImportant: true, isCompleted: false },
         { id: 2, title: 'Study Platform Technologies slides', folder: 'Platform Technologies', date: '2025-11-01', isImportant: false, isCompleted: false },
@@ -71,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // --- Task CRUD Logic ---
+    // Kani siya kay CRUD logic pero gamit JS pwede ni ninyo hawaon if naka develop namo sa PHP for demo purpose lang ni siya 
 
     function handleAddTask(e) {
         e.preventDefault();
